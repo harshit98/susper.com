@@ -141,6 +141,7 @@ export class ResultsComponent implements OnInit {
       this.querylook = Object.assign({}, query);
       this.searchdata.sort = query['sort'];
       this.begin = Number(query['start']) + 1;
+      this.message = '';
       this.start = (this.presentPage) * this.searchdata.rows;
       this.begin = this.start + 1;
 
