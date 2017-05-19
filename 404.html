@@ -1,13 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <!-- This stores the URL the user was attempting to go to in sessionStorage,
-  and then redirects all 404 responses to the app’s index.html page -->
-  <script>
-    sessionStorage.redirect = location.href;
-  </script>
-  <meta http-equiv="refresh" content="0;URL='http://susper.com/'"></meta>
-</head>
+  <meta charset="utf-8">
+  <title>Susper</title>
+  <base href="/susper.com/">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-base.css">
+  <!-- jQuery library -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+<link href="styles.d41d8cd98f00b204e980.bundle.css" rel="stylesheet"/></head>
 <body>
-</body>
+<!--<div id="set-susper-default">
+  <h3>Set Susper as your default search engine on Mozilla!</h3>
+  <ol>
+    <li><button id="install-susper">Install susper</button></li>
+    <li>Mark the checkbox to set Susper as your default search engine</li>
+    <li>Start searching!</li>
+  </ol>
+  <button id="cancel-installation">Cancel</button>
+</div>
+-->
+<script>
+  $(document).ready(function () {
+    //var isFirefox = typeof InstallTrigger !== 'undefined';
+
+    //if (isFirefox === false) {
+    //    $("#set-susper-default").remove();
+    //    $(".input-group-btn").addClass("align-search-btn");
+    //    $("#navbar-search").addClass("align-navsearch-btn");
+    //}
+
+    if (window.external && window.external.IsSearchProviderInstalled) {
+        var isInstalled = window.external.IsSearchProviderInstalled("http://susper.com");
+
+        if (!isInstalled) {
+            $("#set-susper-default").show();
+        }
+    }
+
+    $("#install-susper").on("click", function () {
+        window.external.AddSearchProvider("http://susper.com/susper.xml");
+    });
+
+    $("#cancel-installation").on("click", function () {
+        $("#set-susper-default").remove();
+    });
+});
+</script>
+<script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+<app-root></app-root>
+<script type="text/javascript" src="inline.bd866125616e6e94dd7a.bundle.js"></script><script type="text/javascript" src="vendor.658d514cff247c9ab3bd.bundle.js"></script><script type="text/javascript" src="main.8d21f15366970c27d27c.bundle.js"></script></body>
 </html>
