@@ -4,7 +4,7 @@
   <p>{{this.results[0].description}}</p>
 </div>
 <div class="card-container">
-  <h3><b>Points Of Interest</b></h3>
+  <h3><b>Related Searches</b></h3>
 
   <div *ngFor="let result of results">
     <a [routerLink]="resultsearch+result.label">{{result.label}}</a>
