@@ -74,7 +74,11 @@ a {
   font-size: small;
   color: #808080;
   padding-left: 60px;
-  margin-left: -1%;
+  margin-left: 0.3%;
+}
+
+.text-result {
+  margin-left: 2%;
 }
 
 .container-fluid{
