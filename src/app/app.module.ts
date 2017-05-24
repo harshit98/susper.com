@@ -27,7 +27,8 @@ import { InfoboxComponent } from './infobox/infobox.component';
 import {KnowledgeapiService} from './knowledgeapi.service';
 import { SuggestService } from './suggest.service';
 import { SuggestEffects } from './effects/suggest-effects';
-
+import { CustomizeComponent } from './customize/customize.component';
+import { ThemeService } from './theme.service';
 
 const appRoutes: Routes = [
   {path: 'search', component: ResultsComponent},
@@ -54,6 +55,7 @@ const appRoutes: Routes = [
     TermsComponent,
     NewadvancedsearchComponent,
     InfoboxComponent,
+    CustomizeComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +71,7 @@ const appRoutes: Routes = [
     Ng2Bs3ModalModule
 
   ],
-  providers: [SearchService, KnowledgeapiService, SuggestService],
+  providers: [SearchService, KnowledgeapiService, SuggestService, ThemeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

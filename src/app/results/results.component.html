@@ -12,7 +12,8 @@
                 <ul class="dropdown-menu" aria-labelledby="tools" id="tool-dropdown">
                     <li (click)="filterByContext()">Context Ranking</li>
                     <li (click)="filterByDate()">Sort by Date</li>
-                    <li data-toggle="modal" data-target="#myModal" (click)="advancedsearch()">Advanced Search</li>
+                    <li data-toggle="modal" data-target="#myModal">Advanced Search</li>
+                    <li data-toggle="modal" data-target="#customization">Customization</li>
                 </ul>
             </li>
         </ul>
@@ -27,13 +28,13 @@
         <div class="text-result" *ngIf="Display('all')">
             <div *ngFor="let item of items$|async" class="result">
                 <div class="title">
-                    <a class="title-pointer" href="{{item.link}}">{{item.title}}</a>
+                    <a class="title-pointer" href="{{item.link}}" [style.color]="themeService.titleColor">{{item.title}}</a>
                 </div>
                 <div class="link">
-                    <p>{{item.link}}</p>
+                    <p [style.color]="themeService.linkColor">{{item.link}}</p>
                 </div>
                 <div class="description">
-                    <p>{{item.pubDate|date:'MMMM d, yyyy'}} - {{item.description}}</p>
+                    <p [style.color]="themeService.descriptionColor">{{item.pubDate|date:'MMMM d, yyyy'}} - {{item.description}}</p>
                 </div>
             </div>
         </div>
@@ -83,7 +84,12 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <app-advancedsearch></app-advancedsearch>
 </div>
-
+<!-- Customization modal-box -->
+<link type="text/javascript" href="../../assets/themes/theme.js">
+<div class="modal fade" id="customization" tabindex="-1" role="dialog" aria-labelledby="myModallabel">
+    <app-customize></app-customize>
+</div>
+<!-- END -->
 <!--footer navigation bar goes here-->
 </div>
 <app-footer-navbar [hidden]="hidefooter"></app-footer-navbar>
