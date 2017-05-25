@@ -39,7 +39,7 @@
     //    $("#navbar-search").addClass("align-navsearch-btn");
     //}
 
-    if (window.external && window.external.IsDefaultSearchProvider) {
+    if (window.external && window.external.IsSearchProviderInstalled) {
         var isInstalled = window.external.IsSearchProviderInstalled("http://susper.com");
 
         if (!isInstalled) {
