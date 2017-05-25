@@ -36,3 +36,10 @@ a {
   text-decoration: none;
   margin-left: -11px;
 }
+
+/** Screen responsiveness **/
+@media screen and (max-width:1143px) {
+  .card {
+    display: none;
+  }
+}
