@@ -16,6 +16,7 @@ import * as query from '../actions/query';
 export class SearchBarComponent implements OnInit, AfterViewInit {
   @ViewChildren('input') vc;
   query$: Observable<any>;
+  displayStatus: any;
   searchdata = {
     query: '',
     verify: false,
@@ -37,16 +38,31 @@ export class SearchBarComponent implements OnInit, AfterViewInit {
     });
 
   };
+/**
+ * To hide suggestion box
+ * keycode 13 is the value for enter key
+ */
+  hidebox(event: any) {
+    if(event.which === 13) {
+      this.displayStatus = 'hidebox';
+    }
+  }
 
   onquery(event: any) {
 
     this.store.dispatch(new query.QueryAction(event.target.value));
-
+    this.displayStatus = 'showbox';
     this.submit();
+    this.hidebox(event);
+  }
+
+  ShowAuto() {
+    return (this.displayStatus === 'showbox');
   }
 
   ngOnInit() {
     this.searchdata.timezoneOffset = new Date().getTimezoneOffset();
+    this.displayStatus = 'hidebox';
   }
   ngAfterViewInit() {
     this.vc.first.nativeElement.focus();

@@ -15,6 +15,8 @@ export class AutoCompleteComponent implements OnInit {
   results: Array<any>;
   query$: any;
   resultsearch = '/search';
+  select: boolean;
+
   constructor(private autocompleteservice: AutocompleteService, private route: Router, private activatedroute: ActivatedRoute,
               private store: Store<fromRoot.State>, private ref: ChangeDetectorRef) {
     this.query$ = store.select(fromRoot.getquery);
@@ -29,9 +31,13 @@ export class AutoCompleteComponent implements OnInit {
         });
       }
     });
+    this.select = true;
   }
 
   ngOnInit() {
   }
 
+  changeStatusOfSuggestionBox() {
+    this.select = !this.select;
+  }
 }
