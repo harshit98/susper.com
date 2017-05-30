@@ -30,6 +30,9 @@ import {AutocompleteService} from "./autocomplete.service";
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { ThemeComponent } from './theme/theme.component';
 import { ThemeService } from './theme.service';
+import { TranslateComponent } from './translate/translate.component';
+import { TranslateService } from './translate.service';
+import { TranslateModule } from 'ng2-translate';
 
 
 const appRoutes: Routes = [
@@ -60,6 +63,7 @@ const appRoutes: Routes = [
     RelatedSearchComponent,
     AutoCompleteComponent,
     ThemeComponent,
+    TranslateComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,10 +75,11 @@ const appRoutes: Routes = [
     StoreModule.provideStore(reducer),
     EffectsModule.run(ApiSearchEffects),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    Ng2Bs3ModalModule
+    Ng2Bs3ModalModule,
+    TranslateModule.forRoot()
 
   ],
-  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService],
+  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService, TranslateService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

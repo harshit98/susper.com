@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ThemeService } from '../theme.service';
+import { TranslateService } from 'ng2-translate';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
@@ -110,7 +111,8 @@ export class ResultsComponent implements OnInit {
   }
 
   constructor(private searchservice: SearchService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService) {
+              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService,
+              private translate: TranslateService) {
 
     this.activatedroute.queryParams.subscribe(query => {
       this.hidefooter = 1;
@@ -174,8 +176,12 @@ export class ResultsComponent implements OnInit {
       this.noOfPages = Math.ceil(totalResults / this.searchdata.rows);
       this.maxPage = Math.min(this.searchdata.rows, this.noOfPages);
     });
-
-
+    /**
+     * this language will be default whenever
+     * translation is not found in current language
+     */
+    translate.setDefaultLang('en');
+    
   };
 
   ngOnInit() {
