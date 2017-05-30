@@ -90,6 +90,7 @@ export class ResultsComponent implements OnInit {
   docClick() {
     this.getPresentPage(0);
     this.resultDisplay = 'all';
+    this.filterFileFormat(this.resultDisplay);
     delete this.searchdata.fq;
     this.searchdata.rows = 10;
     this.route.navigate(['/search'], { queryParams: this.searchdata });
@@ -103,6 +104,10 @@ export class ResultsComponent implements OnInit {
   decPresentPage() {
     this.presentPage = Math.max(1, this.presentPage - 1);
     this.getPresentPage(this.presentPage);
+  }
+
+  filterFileFormat(links) {
+    return links.filter(link => !link.includes('.jpg'));
   }
 
   getStyle(page) {
@@ -174,7 +179,6 @@ export class ResultsComponent implements OnInit {
       this.noOfPages = Math.ceil(totalResults / this.searchdata.rows);
       this.maxPage = Math.min(this.searchdata.rows, this.noOfPages);
     });
-
 
   };
 
