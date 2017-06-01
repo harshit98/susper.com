@@ -202,7 +202,10 @@ export class ResultsComponent implements OnInit {
    * To filter out the 'jpg' file formats from standard results
    */
   filterLink(link) {
-    this.fileFormat = link.filter(fileLink => !fileLink.includes(".jpg"));
-    return this.fileFormat;
+    if(link.includes('jpg')) {
+      return false
+    } else {
+      return true;
+    }
   }
 }
