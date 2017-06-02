@@ -1,6 +1,6 @@
 /** Basic results 'All' **/
 .result {
-  padding-left: 40px;
+  margin-left: 6%;
   padding-top: 10px;
 }
 
@@ -264,7 +264,7 @@ a {
 
 @media screen and (max-width:1279px) {
   #search-options {
-    margin-left: 11%;
+    margin-left: 9%;
   }
   #tools {
     margin-left: 17%;
@@ -275,28 +275,45 @@ a {
   #tools {
     margin-left: 18%;
   }
+  #progress-bar {
+    margin-left: 12.1%;
+  }
 }
 
 @media screen and (max-width:991px) {
   #tools {
     margin-left: 20%;
   }
+  #progress-bar {
+    margin-left: 10%;
+  }
 }
 
 @media screen and (max-width:979px) {
-  #search-options {
-    margin-left: 12.5%;
+  #progress-bar {
+    margin-left: 12.7%;
+  }
+  .result {
+    margin-left: 6.3%;
+  }
+}
+
+@media screen and (max-width:804px) {
+  #progress-bar {
+    margin-left: 13.7%;
+  }
+  .result {
+    margin-left: 6.8%;
   }
 }
 
 @media screen and (max-width:767px) {
   .result {
-    padding-left: 46px;
     padding-right: 30px;
+    margin-left: 13%;
   }
   #progress-bar {
-    padding-left: 46px;
-    margin-bottom: -10px;
+    margin-left: 13%;
   }
   #search-options {
     padding-left: 0px;
@@ -330,11 +347,11 @@ a {
 
 @media screen and (max-width:479px) {
   .result {
-    padding-left: 30px;
+    margin-left: 10%;
     padding-right: 20px;
   }
   #progress-bar {
-    padding-left: 30px;
+    margin-left: 9%;
   }
   #pag-bar {
     padding-left: 30px;
