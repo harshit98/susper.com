@@ -30,6 +30,7 @@ import {AutocompleteService} from "./autocomplete.service";
 import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { ThemeComponent } from './theme/theme.component';
 import { ThemeService } from './theme.service';
+import { LanguageComponent } from './language/language.component';
 
 
 const appRoutes: Routes = [
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
     RelatedSearchComponent,
     AutoCompleteComponent,
     ThemeComponent,
+    LanguageComponent,
   ],
   imports: [
     BrowserModule,
