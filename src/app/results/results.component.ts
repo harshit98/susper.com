@@ -15,7 +15,7 @@ export class ResultsComponent implements OnInit {
   items$: Observable<any>;
   totalResults$: Observable<number>;
   resultDisplay: string;
-  fileFormat: string;
+  fileFormat: boolean;
   noOfPages: number;
   presentPage: number;
   maxPage: number;
@@ -46,26 +46,17 @@ export class ResultsComponent implements OnInit {
     return result;
   };
 
-  /**
-   * The details of the rendered page of present page 
-   */
   getPresentPage(N) {
     this.presentPage = N;
     this.searchdata.start = (this.presentPage) * this.searchdata.rows;
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
 
-  /**
-   * Advanced tools -> Sort by date
-   */
   filterByDate() {
     this.searchdata.sort = 'last_modified desc';
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
 
-  /**
-   * Advanced Tools -> Context ranking
-   */
   filterByContext() {
     delete this.searchdata.sort;
     this.route.navigate(['/search'], { queryParams: this.searchdata });
@@ -75,9 +66,6 @@ export class ResultsComponent implements OnInit {
     return (this.resultDisplay === S);
   }
 
-  /**
-   * On clicking the 'Videos' tab, videoClick() function will be called.
-   */
   videoClick() {
     this.getPresentPage(0);
     this.resultDisplay = 'videos';
@@ -86,9 +74,6 @@ export class ResultsComponent implements OnInit {
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
 
-  /**
-   * On clicking the 'images' tab, imageClick() function will be called
-   */
   imageClick() {
     this.getPresentPage(0);
     this.resultDisplay = 'images';
@@ -97,9 +82,7 @@ export class ResultsComponent implements OnInit {
     this.searchdata.resultDisplay = this.resultDisplay;
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
-  /**
-   * On clicking the 'All' tab, docClick() function will be called
-   */
+
   docClick() {
     this.getPresentPage(0);
     this.resultDisplay = 'all';
@@ -108,10 +91,6 @@ export class ResultsComponent implements OnInit {
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
 
-  /**
-   * Functions incPresentPage and decPresentPage 
-   * for working of the pagination bar
-   */
   incPresentPage() {
     this.presentPage = Math.min(this.noOfPages, this.presentPage + 1);
     this.getPresentPage(this.presentPage);
@@ -132,18 +111,15 @@ export class ResultsComponent implements OnInit {
     this.activatedroute.queryParams.subscribe(query => {
       this.hidefooter = 1;
 
-      /**
-       * This is called whenever a image tab or video tab has been clicked
-       */
       if (query['fq']) {
-        // if links include 'png' format files
+
         if (query['fq'].includes('png')) {
-          this.resultDisplay = 'images'; // they should be rendered in images
+          this.resultDisplay = 'images'; 
           this.searchdata.fq = 'url_file_ext_s:(png+OR+jpeg+OR+jpg+OR+gif)';
-        } else if (query['fq'].includes('avi')) { // else if links include 'avi' format
-          this.resultDisplay = 'videos'; // they should be rendered in videos
+        } else if (query['fq'].includes('avi')) {
+          this.resultDisplay = 'videos';
         } else {
-          this.resultDisplay = 'all'; // else the contents should be rendered in 'All' with all type of file formats
+          this.resultDisplay = 'all';
         }
       } else {
         this.resultDisplay = 'all';
@@ -153,7 +129,7 @@ export class ResultsComponent implements OnInit {
         this.searchdata.resultDisplay = this.resultDisplay;
       }
 
-      // present page contents rendering
+
       this.presentPage = Math.abs(query['start'] / this.searchdata.rows) + 1;
       this.searchdata.query = query['query'];
       this.store.dispatch(new queryactions.QueryAction(query['query']));
@@ -167,10 +143,12 @@ export class ResultsComponent implements OnInit {
       this.store.dispatch(new queryactions.QueryServerAction(query));
       this.items$ = store.select(fromRoot.getItems);
       this.totalResults$ = store.select(fromRoot.getTotalResults);
+      
       this.totalResults$.subscribe(totalResults => {
         if (totalResults) {
           this.hidefooter = 0;
         }
+        
         this.end = Math.min(totalResults, this.begin + this.searchdata.rows - 1);
         this.message = 'showing results ' + this.begin + ' to ' + this.end + ' of ' + totalResults;
         this.noOfPages = Math.ceil(totalResults / this.searchdata.rows);
@@ -181,10 +159,10 @@ export class ResultsComponent implements OnInit {
       this.presentPage = Math.abs(query['start'] / this.searchdata.rows) + 1;
 
     });
+    
     this.totalResults$.subscribe(totalResults => {
       if (totalResults) {
         this.hidefooter = 0;
-
       }
 
       this.end = Math.min(totalResults, this.begin + this.searchdata.rows - 1);
@@ -198,14 +176,22 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
 
   }
-  /**
-   * To filter out the 'jpg' file formats from standard results
-   */
+
   filterLink(link) {
-    if(link.includes('jpg')) {
-      return false
+    if (link.includes('jpg')) {
+      this.fileFormat = false;
+      return false;
     } else {
+      this.fileFormat = true;
       return true;
+    }
+  }
+
+  displayNoDate(description) {
+    if (this.fileFormat === false) {
+      return false;
+    } else {
+      return description;
     }
   }
 }
