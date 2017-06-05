@@ -15,6 +15,7 @@ export class ResultsComponent implements OnInit {
   items$: Observable<any>;
   totalResults$: Observable<number>;
   resultDisplay: string;
+  fileFormat: boolean;
   noOfPages: number;
   presentPage: number;
   maxPage: number;
@@ -187,5 +188,23 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  filterLink(link) {
+    if (link.includes('jpg')) {
+      this.fileFormat = false;
+      return false;
+    } else {
+      this.fileFormat = true;
+      return true;
+    }
+  }
+
+  displayNoDate(description) {
+    if (this.fileFormat === false) {
+      return false;
+    } else {
+      return description;
+    }
   }
 }
