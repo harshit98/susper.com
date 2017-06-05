@@ -14,6 +14,7 @@
                     <li (click)="filterByDate()">Sort by Date</li>
                     <li data-toggle="modal" data-target="#myModal">Advanced Search</li>
                     <li data-toggle="modal" data-target="#customization">Customization</li>
+                    <li data-toggle="modal" data-target="#language">Languages</li>
                 </ul>
             </li>
         </ul>
@@ -88,6 +89,9 @@
 </div>
 <div class="modal fade" id="customization" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <app-theme></app-theme>
+</div>
+<div class="modal fade" id="language" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <app-language></app-language>
 </div>
 
 <!--footer navigation bar goes here-->

@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ThemeService } from '../theme.service';
+import { TranslateService } from 'ng2-translate';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
@@ -111,8 +112,15 @@ export class ResultsComponent implements OnInit {
     return ((this.presentPage) === page);
   }
 
-  constructor(private searchservice: SearchService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService) {
+  constructor(
+    private searchservice: SearchService,
+    private route: Router, 
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>, 
+    private ref: ChangeDetectorRef, 
+    public themeService: ThemeService,
+    public translate: TranslateService,
+  ) {
 
     this.activatedroute.queryParams.subscribe(query => {
       this.hidefooter = 1;

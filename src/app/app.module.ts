@@ -31,6 +31,8 @@ import { AutoCompleteComponent } from './auto-complete/auto-complete.component';
 import { ThemeComponent } from './theme/theme.component';
 import { ThemeService } from './theme.service';
 import { LanguageComponent } from './language/language.component';
+import { TranslateModule } from 'ng2-translate';
+import { TranslateService } from 'ng2-translate';
 
 
 const appRoutes: Routes = [
@@ -73,10 +75,11 @@ const appRoutes: Routes = [
     StoreModule.provideStore(reducer),
     EffectsModule.run(ApiSearchEffects),
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
-    Ng2Bs3ModalModule
+    Ng2Bs3ModalModule,
+    TranslateModule.forRoot()
 
   ],
-  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService],
+  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService, TranslateService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
