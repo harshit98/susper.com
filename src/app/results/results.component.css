@@ -256,12 +256,18 @@ a {
   }
 }
 
+@media screen and (max-width: 1440px) {
+  .feed {
+    width: 43%;
+  }
+}
+
 @media screen and (max-width:1365px) {
   #tools {
     margin-left: 16%;
   }
   .feed {
-    width: 46%;
+    width: 49%;
   }
 }
 
