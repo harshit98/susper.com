@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ThemeService } from '../theme.service';
+import { NewsService } from '../news.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
@@ -13,6 +14,10 @@ import * as queryactions from '../actions/query';
 })
 export class ResultsComponent implements OnInit {
   items$: Observable<any>;
+  news$: Observable<any>;
+  newsQuery: any;
+  newsResults: Array<any>;
+  newsItems: Array<any>;
   totalResults$: Observable<number>;
   resultDisplay: string;
   noOfPages: number;
@@ -99,6 +104,13 @@ export class ResultsComponent implements OnInit {
     this.route.navigate(['/search'], { queryParams: this.searchdata });
   }
 
+  newsClick() {
+    this.getPresentPage(1);
+    this.resultDisplay = 'news';
+    this.searchdata.rows = 10;
+    this.searchdata.resultDisplay = this.resultDisplay;
+  }
+
   incPresentPage() {
     this.presentPage = Math.min(this.noOfPages, this.presentPage + 1);
     this.getPresentPage(this.presentPage);
@@ -113,8 +125,18 @@ export class ResultsComponent implements OnInit {
     return ((this.presentPage) === page);
   }
 
-  constructor(private searchservice: SearchService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService) {
+  constructor(
+    private searchservice: SearchService, 
+    private route: Router, 
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>, 
+    private ref: ChangeDetectorRef, 
+    private newsService: NewsService,
+
+    public themeService: ThemeService
+
+
+    ) {
 
     this.activatedroute.queryParams.subscribe(query => {
       this.hidefooter = 1;
@@ -161,6 +183,14 @@ export class ResultsComponent implements OnInit {
       this.presentPage = Math.abs(query['start'] / this.searchdata.rows) + 1;
 
     });
+
+    this.newsQuery = store.select(fromRoot.getquery);
+    this.newsItems = this.newsResults;
+    this.news$ = store.select(fromRoot.getNews);
+    this.news$.subscribe(response => {
+      this.newsResults = response.newsItems || [];
+    })
+
     this.totalResults$ = store.select(fromRoot.getTotalResults);
     this.totalResults$.subscribe(totalResults => {
       if (totalResults) {
