@@ -3,6 +3,7 @@
     <div class="container-fluid" id="search-options-field">
         <ul type="none" id="search-options">
             <li [class.active_view]="Display('all')" (click)="docClick()">All</li>
+            <li [class.active_view]="Display('news')" (click)="newsContent()">News</li>
             <li [class.active_view]="Display('images')" (click)="imageClick()">Images</li>
             <li [class.active_view]="Display('videos')" (click)="videoClick()">Videos</li>
           <li class="dropdown">

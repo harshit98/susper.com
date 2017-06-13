@@ -32,7 +32,7 @@ import { ThemeComponent } from './theme/theme.component';
 import { ThemeService } from './theme.service';
 import { SearchsettingsComponent } from './searchsettings/searchsettings.component';
 import {KnowledgeEffects} from "./effects/knowledge";
-
+import { NewsService } from './news.service';
 
 const appRoutes: Routes = [
   {path: 'search', component: ResultsComponent},
@@ -80,7 +80,7 @@ const appRoutes: Routes = [
     Ng2Bs3ModalModule
 
   ],
-  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService],
+  providers: [SearchService, KnowledgeapiService, AutocompleteService, ThemeService, NewsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

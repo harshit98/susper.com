@@ -1,11 +1,13 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { SearchService } from '../search.service';
 import { ThemeService } from '../theme.service';
+import { NewsService } from '../news.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
 import { Store } from '@ngrx/store';
 import * as queryactions from '../actions/query';
+
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -40,6 +42,8 @@ export class ResultsComponent implements OnInit {
   hidefooter = 1;
   querychange$: Observable<any>;
   resultscomponentchange$: Observable<any>;
+  newsFeed: {};
+
   getNumber(N) {
     let result = Array.apply(null, { length: N }).map(Number.call, Number);
     if (result.length > 10) {
@@ -88,7 +92,13 @@ export class ResultsComponent implements OnInit {
     this.searchdata.fq = 'url_file_ext_s:(png+OR+jpeg+OR+jpg+OR+gif)';
     this.searchdata.resultDisplay = this.resultDisplay;
     this.route.navigate(['/search'], { queryParams: this.searchdata });
+  }
 
+  newsContent() {
+    this.resultDisplay = 'news';
+    this._newsService.getNews().subscribe(data => {
+      this.newsFeed = Object.assign({}, data);
+    });
   }
 
   docClick() {
@@ -114,8 +124,15 @@ export class ResultsComponent implements OnInit {
     return ((this.presentPage) === page);
   }
 
-  constructor(private searchservice: SearchService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService) {
+  constructor(
+    private searchservice: SearchService,
+    private route: Router, 
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>,
+    private ref: ChangeDetectorRef,
+    public themeService: ThemeService,
+    private _newsService: NewsService 
+  ) {
 
     this.activatedroute.queryParams.subscribe(query => {
 
@@ -187,4 +204,5 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
 
   }
+
 }
