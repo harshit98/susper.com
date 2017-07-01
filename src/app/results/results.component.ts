@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
 import { Store } from '@ngrx/store';
 import * as queryactions from '../actions/query';
+import { Map } from 'leaflet';
+
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -104,6 +106,17 @@ export class ResultsComponent implements OnInit {
     urldata.rows = 10;
     urldata.resultDisplay = this.resultDisplay;
     this.store.dispatch(new queryactions.QueryServerAction(urldata));
+  }
+
+  mapsClick() {
+    this.getPresentPage(1);
+    this.resultDisplay = 'maps';
+
+    let map = L.map('map', {
+      center: [20.0, 5.0],
+      minZoom: 2,
+      zoom: 2
+    });
   }
 
   incPresentPage() {
