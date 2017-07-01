@@ -6,7 +6,10 @@ import { Observable } from 'rxjs';
 import * as fromRoot from '../reducers';
 import { Store } from '@ngrx/store';
 import * as queryactions from '../actions/query';
-import { Map } from 'leaflet';
+import { MapService } from '../map.service';
+import { GeocodingService } from '../geocoding.service';
+import { Location } from '../shared/maps/location.class';
+import L from 'leaflet';
 
 @Component({
   selector: 'app-results',
@@ -111,12 +114,6 @@ export class ResultsComponent implements OnInit {
   mapsClick() {
     this.getPresentPage(1);
     this.resultDisplay = 'maps';
-
-    let map = L.map('map', {
-      center: [20.0, 5.0],
-      minZoom: 2,
-      zoom: 2
-    });
   }
 
   incPresentPage() {
@@ -133,8 +130,16 @@ export class ResultsComponent implements OnInit {
     return ((this.presentPage) === page);
   }
 
-  constructor(private searchservice: SearchService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef, public themeService: ThemeService) {
+  constructor(
+    private searchservice: SearchService,
+    private route: Router,
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>,
+    private ref: ChangeDetectorRef,
+    public themeService: ThemeService,
+    private mapService: MapService,
+    private geocoder: GeocodingService
+  ) {
 
     this.activatedroute.queryParams.subscribe(query => {
       let urldata = Object.assign({}, this.searchdata);
@@ -182,7 +187,7 @@ export class ResultsComponent implements OnInit {
       this.totalResults = totalResults;
       this.end = Math.min(totalResults, this.begin + this.searchdata.rows - 1);
       this.totalNumber = totalResults;
-        this.message = 'About ' + totalResults + ' results';
+      this.message = 'About ' + totalResults + ' results';
       this.noOfPages = Math.ceil(totalResults / this.searchdata.rows);
       this.maxPage = Math.min(this.searchdata.rows, this.noOfPages);
     });
@@ -200,5 +205,25 @@ export class ResultsComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    let map = L.map("map", {
+      zoomControl: false,
+      center: L.latLng(40.731253, -73.996139),
+      zoom: 12,
+      minZoom: 4,
+      maxZoom: 19,
+      layers: [this.mapService._baseMap.OpenStreetMap]
+    });
+
+    L.control.zoom({position: "topright"}).addTo(map);
+    L.control.layers(this.mapService._baseMap).addTo(map);
+    L.control.scale().addTo(map);
+
+    this.mapService.map = map;
+    this.geocoder.getCurrentLocation()
+        .subscribe(
+          location => map.panTo([location.latitude, location.longitude]),
+          err => console.log(err)
+        );
   }
 }
