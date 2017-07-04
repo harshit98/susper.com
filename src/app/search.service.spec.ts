@@ -9,11 +9,11 @@ import { reducer } from './reducers/index';
 import { SearchService } from './search.service';
 import { MockSearchApi } from './shared/mocks/search.mock';
 
-const mockJsonp_provider = {
-  provide: Jsonp,
+const mockHttp_provider = {
+  provide: Http,
   deps: [MockBackend, BaseRequestOptions],
   useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
-    return new Jsonp(backend, options);
+    return new Http(backend, options);
   }
 };
 
@@ -30,7 +30,7 @@ describe('Service: Search', () => {
       ],
       providers: [
         SearchService,
-        mockJsonp_provider,
+        mockHttp_provider,
         BaseRequestOptions,
         MockBackend
       ]
