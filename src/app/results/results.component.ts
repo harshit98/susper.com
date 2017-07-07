@@ -39,6 +39,7 @@ export class ResultsComponent implements OnInit {
   wholequery$: Observable<any>;
   resultscomponentchange$: Observable<any>;
   totalResults: number;
+  hideIntelligence: boolean;
 
   getNumber(N) {
     let result = Array.apply(null, { length: N }).map(Number.call, Number);
@@ -190,6 +191,12 @@ export class ResultsComponent implements OnInit {
       this.begin = this.start + 1;
 
     });
+
+    if (this.searchdata.query === '') {
+      this.hideIntelligence = true;
+    } else {
+      this.hideIntelligence = false;
+    }
   }
 
   ngOnInit() {
