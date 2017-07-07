@@ -13,6 +13,8 @@ export class IntelligenceComponent implements OnInit {
   wholequery$: Observable<any>;
   actions: Array<any> = [];
   answer: any;
+  visible: boolean;
+
   constructor(private store: Store<fromRoot.State>, private intelligence: IntelligenceService) {
     this.wholequery$ = store.select(fromRoot.getwholequery);
     this.wholequery$.subscribe(data => {
@@ -22,12 +24,21 @@ export class IntelligenceComponent implements OnInit {
           for (let action of this.actions){
             if (action.type === 'answer' && action.mood !== 'sabta') {
                this.answer = action.expression;
+               this.visible = true;
+
+               if (this.answer === "I can't feel it in here but did you try using fan? It will help you.") {
+                 this.visible = false;
+               } else {
+                 this.visible = true;
+               }
             } else {
               this.answer = '';
+              this.visible = false;
             }
           }
         } else {
           this.answer = '';
+          this.visible = false
         }
       });
     });
