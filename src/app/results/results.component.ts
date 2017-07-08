@@ -39,6 +39,7 @@ export class ResultsComponent implements OnInit {
   wholequery$: Observable<any>;
   resultscomponentchange$: Observable<any>;
   totalResults: number;
+  navInput: any;
 
   getNumber(N) {
     let result = Array.apply(null, { length: N }).map(Number.call, Number);
@@ -194,5 +195,6 @@ export class ResultsComponent implements OnInit {
 
   ngOnInit() {
     document.getElementById('nav-group').style.width = '632px';
+    this.navInput = '536px';
   }
 }
