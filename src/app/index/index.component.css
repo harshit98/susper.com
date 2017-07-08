@@ -31,7 +31,6 @@
   }
 }
 
-
 @media screen and (max-width: 480px) {
   #set-susper-default h3{
     font-size: 14px;
@@ -46,7 +45,7 @@
     font-size: 12px;
   }
   div#susper-logo-fix {
-    margin-left: -40%;
+    margin-left: 20%;
   }
 }
 
@@ -129,12 +128,27 @@
   }
 }
 
-@media screen and (max-width: 978px) {
-  #biglogo {
-    padding-left: 28%;
+@media screen and (max-width: 979px) {
+  #susper-logo-fix {
+    margin-left: 39%;
   }
+}
+
+@media screen and (max-width: 978px) {
   div.dropdown-menu-box-homepage{
     margin-left: 19%;
+  }
+}
+
+@media screen and (max-width: 967px) {
+  #susper-logo-fix {
+    margin-left: -1%;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  #susper-logo-fix {
+    margin-left: 40%;
   }
 }
 
