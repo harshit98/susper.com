@@ -20,7 +20,7 @@
 }
 
 .dropdown-menu-box-homepage {
-  margin-left: 64%;
+  margin-left: 58%;
   margin-top: -160px;
   max-width: 50px;
 }
@@ -110,8 +110,9 @@
   #search-bar {
     margin-left: -48%;
   }
-  .dropdown-menu-box-homepage {
+  div.dropdown-menu-box-homepage {
     margin-top: -13%;
+    margin-left: 10%;
   }
 }
 
@@ -127,6 +128,19 @@
   }
   div.dropdown-menu-box-homepage{
     margin-left: 19%;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  div.dropdown-menu-box-homepage {
+    margin-left: 67%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  div.dropdown-menu-box-homepage {
+    margin-left: 16%;
+    margin-top: -15%;
   }
 }
 
