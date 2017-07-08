@@ -2,10 +2,10 @@
   "static": {
     "urls": {
       "/susper.com/not-found-bg.8f346a53ee078b98deb0.jpg": "f41afa13621425291e1a9bd20dc050c17fbde946",
-      "/susper.com/main.63f1c88572e53b6f5953.bundle.js": "5126a793748c8b22f652521381051cd9e0c4c5be",
+      "/susper.com/main.7bcfd1aa4a629f5d1159.bundle.js": "07e0ac6486af5c0e5090103b67bd1792ac47fae9",
       "/susper.com/sw-register.c349237a6b1ad2a30c8d.bundle.js": "a39b838701bf5562335e3d28ac86f9ca27f83c52",
       "/susper.com/vendor.19711ddc541f750670a8.bundle.js": "f404ba85db784e8e8e32fb48d6fac86e7d917bad",
-      "/susper.com/inline.d77ce92c4cfe616d3937.bundle.js": "77f02aa5d0004f595712db2fbf1b92294b8042c0",
+      "/susper.com/inline.fd2c0b3cc17932e9432e.bundle.js": "803d237e3df3f351ac47d0ee229ab34884c28bc2",
       "/susper.com/styles.d41d8cd98f00b204e980.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
       "/susper.com/assets/css/base.css": "f33d855f3fd7c059981974cf51853ae776db7e24",
       "/susper.com/assets/css/bootstrap-base.css": "04286a6357f4cf16b53b800f72e0c13a2d293d22",
@@ -38,7 +38,7 @@
       "/susper.com/assets/images/terminal.png": "2aa0054d6e388a6cd5630e3eca2350cfb289955b",
       "/susper.com/assets/images/YaCyLogo2011_60.png": "954f9d626d69a7861e9e84735c44b0a8bc759c97",
       "/susper.com/favicon.ico": "1214df2ad2bb72333b2cf64a4e5e101b25c321e2",
-      "/susper.com/index.html": "8b9b81b1cc0aaaa039c07ad94517f15cdf788db1"
+      "/susper.com/index.html": "d2aa69816dc939c706dfe45cae711b4280506d19"
     },
     "_generatedFromWebpack": true
   }
