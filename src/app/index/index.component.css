@@ -20,44 +20,33 @@
 }
 
 .dropdown-menu-box-homepage {
-  margin-left: 64%;
-  margin-top: -160px;
-  max-width: 50px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
 }
 
-@media screen and (max-width: 480px) {
-  #set-susper-default h3{
-    font-size: 14px;
+@media screen and (max-width: 978px) {
+  #biglogo {
+    padding-left: 28%;
   }
-  #set-susper-default ol{
-    font-size: 12px;
-  }
-  #install-susper{
-    font-size: 12px;
-  }
-  #cancel-installation{
-    font-size: 12px;
-  }
-  div#susper-logo-fix {
-    margin-left: -40%;
+  div.dropdown-menu-box-homepage{
+    margin-left: 19%;
   }
 }
 
-@media screen and (max-width: 281px) {
-  #set-susper-default{
-    bottom: 80px;
+@media screen and (max-width: 896px) {
+  .dropdown-menu-box-homepage {
+    margin-top: -13%;
   }
-  #set-susper-default h3{
-    font-size: 14px;
+}
+
+@media screen and (max-width: 767px) {
+  #search-bar {
+    margin-left: -48%;
   }
-  #set-susper-default ol{
-    font-size: 12px;
-  }
-  #install-susper{
-    font-size: 12px;
-  }
-  #cancel-installation{
-    font-size: 12px;
+  .dropdown-menu-box-homepage {
+    margin-top: -13%;
   }
 }
 
@@ -106,27 +95,39 @@
   }
 }
 
-@media screen and (max-width: 767px) {
-  #search-bar {
-    margin-left: -48%;
+@media screen and (max-width: 480px) {
+  #set-susper-default h3{
+    font-size: 14px;
   }
-  .dropdown-menu-box-homepage {
-    margin-top: -13%;
+  #set-susper-default ol{
+    font-size: 12px;
+  }
+  #install-susper{
+    font-size: 12px;
+  }
+  #cancel-installation{
+    font-size: 12px;
+  }
+  div#susper-logo-fix {
+    margin-left: -40%;
   }
 }
 
-@media screen and (max-width: 896px) {
-  .dropdown-menu-box-homepage {
-    margin-top: -13%;
+@media screen and (max-width: 281px) {
+  #set-susper-default{
+    bottom: 80px;
   }
-}
-
-@media screen and (max-width: 978px) {
-  #biglogo {
-    padding-left: 28%;
+  #set-susper-default h3{
+    font-size: 14px;
   }
-  div.dropdown-menu-box-homepage{
-    margin-left: 19%;
+  #set-susper-default ol{
+    font-size: 12px;
+  }
+  #install-susper{
+    font-size: 12px;
+  }
+  #cancel-installation{
+    font-size: 12px;
   }
 }
 
@@ -157,4 +158,3 @@ footer {
   left: 0px;
   width:100%;
 }
-
