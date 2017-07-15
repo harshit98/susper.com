@@ -65,6 +65,7 @@ export class SpeechtotextComponent implements OnInit {
         this.buttoncolor = "#f44";
         this.miccolor = "#fff";
         this.borderheight = this.randomize(0.7, 1);
+        this.message = "Listening...";
         if (!recheck) {
           this.resettimer(true);
         }
