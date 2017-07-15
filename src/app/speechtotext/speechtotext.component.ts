@@ -87,7 +87,8 @@ export class SpeechtotextComponent implements OnInit {
 
       if (t === 5) {
         this.subscription.unsubscribe();
-        this.store.dispatch(new speechactions.SearchAction(false));
+        this.message = "Please check your microphone and audio levels.";
+        //this.store.dispatch(new speechactions.SearchAction(false));
       }
     });
   }
