@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../reducers';
 import { KnowledgeapiService } from '../knowledgeapi.service';
 import { Observable } from "rxjs";
+import { SpeechSynthesisService } from '../speech-synthesis.service';
 
 @Component({
   selector: 'app-infobox',
@@ -20,8 +21,14 @@ export class InfoboxComponent implements OnInit {
   resultscomponentchange$: Observable<any>;
   response$: Observable<any>;
 
-  constructor(private knowledgeservice: KnowledgeapiService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef) {
+  constructor(
+    private knowledgeservice: KnowledgeapiService,
+    private route: Router,
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>,
+    private ref: ChangeDetectorRef,
+    private synthesis: SpeechSynthesisService
+    ) {
     this.query$ = store.select(fromRoot.getquery);
     this.query$.subscribe(query => {
       this.keyword = query;
@@ -32,6 +39,7 @@ export class InfoboxComponent implements OnInit {
         if (res.results[0]) {
           if (res.results[0].label.toLowerCase().includes(this.keyword.toLowerCase())) {
             this.results = res.results;
+            this.startSpeaking(this.results[0].description);
           } else {
               this.results = [];
             }
@@ -41,8 +49,10 @@ export class InfoboxComponent implements OnInit {
         }
 
     });
+  }
 
-
+  startSpeaking(description) {
+    this.synthesis.speak(description);
   }
 
   ngOnInit() {
