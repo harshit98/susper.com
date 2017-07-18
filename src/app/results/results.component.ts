@@ -41,6 +41,11 @@ export class ResultsComponent implements OnInit {
   totalResults: number;
   hideIntelligence: boolean;
 
+  private _maxHeight: string;
+  private _marginBottom: string;
+  private _expand: boolean = false;
+  private clickedItem: any;
+
   getNumber(N) {
     let result = Array.apply(null, { length: N }).map(Number.call, Number);
     if (result.length > 10) {
@@ -72,9 +77,14 @@ export class ResultsComponent implements OnInit {
   }
 
   Display(S) {
-
     return (this.resultDisplay === S);
+  }
 
+  expandImage(key) {
+    this._expand = !this._expand;
+    this.clickedItem = key;
+    this._maxHeight = '500px';
+    this._marginBottom = '10px';
   }
 
   videoClick() {
