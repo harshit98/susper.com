@@ -2,11 +2,12 @@
   "static": {
     "urls": {
       "/susper.com/not-found-bg.8f346a53ee078b98deb0.jpg": "f41afa13621425291e1a9bd20dc050c17fbde946",
-      "/susper.com/main.17d9eaadbfc7e2b1f302.bundle.js": "f7d0942493cadead702d00c9567cdfa8af33d303",
+      "/susper.com/main.2904500990ebfbb2fb27.bundle.js": "ce95ffef56dd4375f7e18637d87a798a9a8152f8",
       "/susper.com/sw-register.c349237a6b1ad2a30c8d.bundle.js": "a39b838701bf5562335e3d28ac86f9ca27f83c52",
       "/susper.com/vendor.19711ddc541f750670a8.bundle.js": "f404ba85db784e8e8e32fb48d6fac86e7d917bad",
-      "/susper.com/inline.06d26b466deaed8e6502.bundle.js": "6d7d993d5ef0a70d362a85ceb0894c80d0fecf81",
+      "/susper.com/inline.24d3ce7a32873abef696.bundle.js": "61eec93396428c94169d45ab6814eb07c496523a",
       "/susper.com/styles.d41d8cd98f00b204e980.bundle.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+      "/susper.com/assets/css/base.css": "f33d855f3fd7c059981974cf51853ae776db7e24",
       "/susper.com/assets/css/bootstrap-base.css": "04286a6357f4cf16b53b800f72e0c13a2d293d22",
       "/susper.com/assets/css/dashboard.css": "9a79198285f8bfd83a01c311d9a1929c1f138864",
       "/susper.com/assets/css/ie6.css": "3edd745eb42f7defcd95d1e49431bfbd67482f65",
@@ -28,7 +29,6 @@
       "/susper.com/assets/images/github.png": "3a2742622a80a60edec8516dbe5a32db7e3f4eaa",
       "/susper.com/assets/images/loklak.png": "96bff0518b5f2285dccf720481e89aa4286a5441",
       "/susper.com/assets/images/microphone.png": "c0f1e88007368d123ab49c28397ed22d1913f5dc",
-      "/susper.com/assets/css/base.css": "f33d855f3fd7c059981974cf51853ae776db7e24",
       "/susper.com/assets/images/mountain.jpg": "af7d0d9a086ba468c13b1c064e8fa8c24fbb7601",
       "/susper.com/assets/images/not-found-bg.jpg": "f41afa13621425291e1a9bd20dc050c17fbde946",
       "/susper.com/assets/images/search.png": "dbd3a14d4dafedfd8449e5ca136f7004a2242379",
@@ -38,7 +38,7 @@
       "/susper.com/assets/images/terminal.png": "2aa0054d6e388a6cd5630e3eca2350cfb289955b",
       "/susper.com/assets/images/YaCyLogo2011_60.png": "954f9d626d69a7861e9e84735c44b0a8bc759c97",
       "/susper.com/favicon.ico": "1214df2ad2bb72333b2cf64a4e5e101b25c321e2",
-      "/susper.com/index.html": "9923c3365de7d1b76f01ce9abfa5bb3b07d000f9"
+      "/susper.com/index.html": "3eef536ba53b856728b7aa8b9b67db28f74d8835"
     },
     "_generatedFromWebpack": true
   }
