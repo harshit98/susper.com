@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../reducers';
 import { KnowledgeapiService } from '../knowledgeapi.service';
+import { SpeechService } from '../speech.service';
 import { Observable } from "rxjs";
 
 @Component({
@@ -20,8 +21,16 @@ export class InfoboxComponent implements OnInit {
   resultscomponentchange$: Observable<any>;
   response$: Observable<any>;
 
-  constructor(private knowledgeservice: KnowledgeapiService, private route: Router, private activatedroute: ActivatedRoute,
-              private store: Store<fromRoot.State>, private ref: ChangeDetectorRef) {
+  private _checkSynthesis: boolean = true;
+
+  constructor(
+    private knowledgeservice: KnowledgeapiService,
+    private route: Router,
+    private activatedroute: ActivatedRoute,
+    private store: Store<fromRoot.State>,
+    private ref: ChangeDetectorRef,
+    private synthesis: SpeechService 
+    ) {
     this.query$ = store.select(fromRoot.getquery);
     this.query$.subscribe(query => {
       this.keyword = query;
@@ -41,8 +50,13 @@ export class InfoboxComponent implements OnInit {
         }
 
     });
+  }
 
-
+  if (_checkSynthesis = true) {
+    this.sayText();
+  }
+  sayText() {
+    this.synthesis.startSynthesis(this.results[0]);
   }
 
   ngOnInit() {
