@@ -40,6 +40,10 @@ export class ResultsComponent implements OnInit {
   resultscomponentchange$: Observable<any>;
   totalResults: number;
   hideIntelligence: boolean;
+  
+  private _borderHeight: number = 0;
+  private _borderWidth: number = 0;
+  private _expand: any;
 
   getNumber(N) {
     let result = Array.apply(null, { length: N }).map(Number.call, Number);
@@ -75,6 +79,14 @@ export class ResultsComponent implements OnInit {
 
     return (this.resultDisplay === S);
 
+  }
+
+  expandImage() {
+    if (this._expand == 'none') {
+      this._expand = 'block';
+    } else {
+      this._expand = 'none';
+    }
   }
 
   videoClick() {

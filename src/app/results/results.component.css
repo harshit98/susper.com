@@ -361,6 +361,30 @@ div.video-result {
   margin-left: 8.6%;
 }
 
+.expand-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #454545;
+  font-size: 50px;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+#expand-image {
+  position: relative;
+  left: -5px;
+  padding: 0 5px;
+  box-sizing: content-box;
+  overflow: hidden;
+  background: #222;
+  max-height: 0;
+  transition: max-height .3s ease-in-out,
+              margin-bottom .1s .2s;
+  width: 500%;
+  display: block;
+}
+
 @media screen and (min-width:1920px) {
   #tools {
     margin-left: 27%;

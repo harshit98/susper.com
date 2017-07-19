@@ -89,7 +89,12 @@
           </div>
           <div *ngIf="totalNumber > 0">
             <div class="cell" *ngFor="let item of items$|async">
-                <a class="image-pointer" href="{{item.link}}"><img class="responsive-image" src="{{item.link}}"></a>
+                <a class="image-pointer" href="{{item.link}}">
+                    <img class="responsive-image" src="{{item.link}}" (click)="expandImage()">
+                </a>
+            </div>
+            <div id="expand-image">
+                <a [style.display]="_expand" class="expand-close"></a>
             </div>
         </div>
           </div>
