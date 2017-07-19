@@ -89,15 +89,17 @@
           </div>
           <div *ngIf="totalNumber > 0">
             <div class="cell" *ngFor="let item of items$|async">
-                <a class="image-pointer" href="{{item.link}}">
-                    <img class="responsive-image" src="{{item.link}}" (click)="expandImage()">
-                </a>
-            </div>
-            <div id="expand-image">
-                <a [style.display]="_expand" class="expand-close"></a>
+                <input id="toggle" type="checkbox" checked>
+                    <img class="responsive-image" src="{{item.link}}">
+                    <label for="toggle"></label>
+                        <div id="expand">
+                            <section>
+                                <p>mew</p>
+                            </section>
+                        </div>
             </div>
         </div>
-          </div>
+        </div>
     </div>
     <!-- END -->
         <div class="video-result" *ngIf="Display('videos')">
