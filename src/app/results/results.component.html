@@ -89,14 +89,12 @@
           </div>
           <div *ngIf="totalNumber > 0">
             <div class="cell" *ngFor="let item of items$|async">
-                <input id="toggle" type="checkbox" checked>
-                    <img class="responsive-image" src="{{item.link}}">
-                    <label for="toggle"></label>
-                        <div id="expand">
-                            <section>
-                                <p>mew</p>
-                            </section>
-                        </div>
+                <img class="responsive-image" src="{{item.link}}" (click)="expandImage()">
+            </div>
+            <div class="image-expand" [ngClass]="{'image-expand': !_expand}">
+                <section>
+                    <p>hello</p>
+                </section>
             </div>
         </div>
         </div>

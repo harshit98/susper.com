@@ -361,25 +361,17 @@ div.video-result {
   margin-left: 8.6%;
 }
 
-label {
-  float: left;
-  display: block;
-}
-
-#expand {
-  height: 0px;
+.image-expand {
+  position: relative;
+  left: -5px;
+  padding: 0 5px;
+  box-sizing: content-box;
   overflow: hidden;
-  transition: height 0.5s;
-  background-color: #222;
-}
-
-#toggle:checked ~ #expand {
-  height: 250px;
-}
-
-input {
-  display: none;
-  visibility: hidden;
+  background: #222;
+  max-height: 0;
+  transition: max-height .3s ease-in-out,
+             margin-bottom .1s .2s;
+  width: 500%; 
 }
 
 @media screen and (min-width:1920px) {
