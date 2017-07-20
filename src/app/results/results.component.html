@@ -100,7 +100,7 @@
             <section class="image-grid" *ngFor="let item of items$|async">
                 <div class="image__cell is-collapsed">
                     <div class="image--basic">
-                        <img (click)="expandImage()" class="basic__img" src="{{item.link}}" _expand: = false;>
+                        <img (click)="expandImage(item.$key)" class="basic__img" src="{{item.link}}" _expand: = false;>
                         <div class="arrow--up"></div>
                     </div>
                     <div class="image--expand" *ngIf="clickedItem == item.$key"[ngClass]="{'image--expand': !_expand}">
