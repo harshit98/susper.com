@@ -171,31 +171,31 @@ a {
 }
 
 /** Rendered image properties **/
-.container {
-  width: 100%;
-  margin: 0;
-  top: 0;
-  bottom: 0;
-  padding: 0;
+.wrap {
+  max-width: 980px;
+  margin: auto;
 }
 
-.grid {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.responsive-image {
-  max-width: 100%;
-  height: 200px;
-  padding-top: 20px;
-  padding: 0.6%;
+.imgwrap {
+  position: relative;
+  width: 20%;
+  padding: 20% 0 0;
+  overflow: hidden;
+  margin: 10px;
   display: inline-block;
-  float: left;
 }
 
-.image-pointer {
-  cursor: pointer;
+.imgwrap img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
 }
+
 /** END **/
 
 #search-options-field {

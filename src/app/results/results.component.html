@@ -74,6 +74,7 @@
   <app-infobox [hidden]="hidefooter || hideAutoCorrect" class="infobox col-md-4" *ngIf="Display('all')"></app-infobox>
   <!-- END -->
     <!-- Image section -->
+    <!--
     <div class="container">
         <div class="grid" *ngIf="Display('images')">
           <div *ngIf="totalNumber < 1" class="container-fluid col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
@@ -95,6 +96,11 @@
           </div>
     </div>
     <!-- END -->
+    <div class="wrap" *ngIf="Display('images')">
+        <div class="imgwrap" *ngFor="let item of items$|async">
+            <img src="{{item.link}}">
+        </div>
+    </div>
         <div class="video-result" *ngIf="Display('videos')">
           <div *ngIf="totalNumber < 1" class="container-fluid col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
             <div class="noResults">
