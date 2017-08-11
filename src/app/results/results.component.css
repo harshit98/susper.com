@@ -400,6 +400,13 @@ div.autocorrect{
   }
 }
 
+@media screen and (max-width: 768px) {
+  #search-options-field {
+    width: 98.5%;
+    margin-top: -0.2%;
+  }
+}
+
 @media screen and (max-width:767px) {
   div.result {
     padding-right: 30px;
@@ -512,6 +519,13 @@ div.autocorrect{
     top: 2%;
   }
 }
+
+@media screen and (max-width: 425px) {
+  #search-options-field {
+    width: 93.5%;
+  }
+}
+
 @media screen and (max-width:423px) {
   #pag-bar {
     padding-left: 0;
@@ -532,8 +546,20 @@ div.autocorrect{
   }
 }
 
+@media screen and (max-width: 375px) {
+  #search-options-field {
+    width: 92%;
+  }
+}
+
 @media screen and (max-width:330px) {
   #search-options li {
     padding: 0 2vw 12px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #search-options-field {
+    width: 92%;
   }
 }
