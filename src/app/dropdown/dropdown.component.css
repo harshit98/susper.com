@@ -131,6 +131,30 @@ hr {
     padding-top: 10px;
 }
 
+@media screen and (max-width: 2670px) {
+    .dropdown-menu-box {
+        margin-left: -80%;
+    }
+}
+
+@media screen and (min-width: 2560px) {
+    .dropdown-menu-box {
+        margin-left: -80%;
+    }
+}
+
+@media screen and (max-width: 828px) {
+    .dropdown-menu-box {
+        margin-left: 2%;
+    }
+}
+
+@media screen and (max-width: 817px) {
+    .dropdown-menu-box {
+        margin-left: 5%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .dropdown-menu-box {
         margin-left: 60%;
@@ -143,11 +167,14 @@ hr {
     position: absolute;
     background-color: white;
     border: 1px solid #cccccc;
-    right: -38px;
+    right: -18px;
     left: auto;
   }
   .nav > li > a{
     padding-left: 11px;
     padding-right: 28px;
+  }
+  .dropdown-menu-box {
+      margin-left: -210%;
   }
 }
