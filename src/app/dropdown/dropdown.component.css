@@ -131,6 +131,12 @@ hr {
     padding-top: 10px;
 }
 
+@media screen and (max-width: 2560px) {
+    .dropdown-menu-box {
+        margin-left: -80%;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .dropdown-menu-box {
         margin-left: 60%;
