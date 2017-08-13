@@ -8,8 +8,41 @@
   width: 434px;
 }
 
+@media screen and (max-width: 2560px) {
+  div.card {
+    margin-left: 7.4%;
+    margin-top: 0.5%;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  div.card {
+    margin-left: 11.5%;
+    margin-bottom: -0.1%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  div.card {
+    margin-left: 13%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  div.card {
+    margin-left: 17%;
+  }
+}
+
 @media screen and (max-width: 450px) {
   div.card{
     width: 92vw;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  div.card {
+    margin-left: 2%;
+    margin-top: 2%;
   }
 }
